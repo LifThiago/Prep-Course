@@ -6,14 +6,14 @@ function crearGato(nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
-  var gato = {
+  var nuevoObjeto = {
     nombre: nombre,
     edad: edad,
-    meow: function(){
+    meow: function meow() {
       return 'Meow!'
     }
   }
-  return gato
+  return nuevoObjeto
 }
 
 
@@ -31,7 +31,7 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-  objeto[metodo]();
+  objeto[metodo]()
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
@@ -54,12 +54,12 @@ function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
-  var usuario1 = {
+  var usuario = {
     nombre: nombre,
     email: email,
-    password: password
+    password: password,
   }
-  return usuario1
+  return usuario
 }
 
 function tieneEmail(usuario) {
@@ -67,7 +67,7 @@ function tieneEmail(usuario) {
   // De lo contratio, devuelve "false"
   // Tu código:
   if (usuario.email) { return true}
-  else { return false}
+  return false
 }
 
 
@@ -77,8 +77,8 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (objeto[propiedad]) { return true}
-  else { return false}
+  if (objeto[propiedad]) {return true}
+  return false
 }
 
 function verificarPassword(usuario, password) {
@@ -86,12 +86,12 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
-  if (password == usuario.password) { return true}
-  else { return false}
+  if (usuario.password == password) { return true}
+  return false
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
-  // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
+  // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevaPassword"
   // Devuelve el objeto
   // Tu código:
   usuario.password = nuevaPassword
@@ -114,8 +114,9 @@ function pasarUsuarioAPremium(usuarios) {
   // Devuelve el array de usuarios
   // Tu código:
   for (var i=0; i<usuarios.length; i++) {
-  usuarios[i].esPremium = true
-} return usuarios
+    usuarios[i].esPremium = true
+  }
+  return usuarios
 }
 
 function sumarLikesDeUsuario(usuario) {
@@ -126,11 +127,11 @@ function sumarLikesDeUsuario(usuario) {
   // Devuelve la suma
   // Tu código:
   // usuario.posts.post.likes
-  var suma = 0
+  var likesTotal = 0
   for (var i=0; i<usuario.posts.length; i++) {
-    suma += usuario.posts[i].likes
+    likesTotal = likesTotal + usuario.posts[i].likes
   }
-  return suma
+  return likesTotal
 }
 
 function agregarMetodoCalculoDescuento(producto) {
@@ -143,8 +144,8 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
-  producto.calcularPrecioDescuento = function(){
-    return producto.precio - producto.precio * producto.porcentajeDeDescuento
+  producto.calcularPrecioDescuento = function () {
+    return this.precio - (this.precio * this.porcentajeDeDescuento)
   }
   return producto
 }
